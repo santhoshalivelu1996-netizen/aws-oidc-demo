@@ -18,5 +18,11 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::520578320765:role/Trust-Relationships
           aws-region: us-east-1
+      - name: Verify Identity
+        run: aws sts get-caller-identity
 
-      - run: aws sts get-caller-identity
+      - name: List S3 Buckets 
+        run: aws s3 ls
+      - name: List EC2 Instances 
+        run: aws ec2 describe-instances
+       
